@@ -1,6 +1,6 @@
 # OSINT AI Agent
 
-This project is a demonstration of an OSINT (Open Source Intelligence) AI Agent built for a technical interview. The system is designed to process intelligence queries through an automated, multi-agent pipeline, performing strategic data retrieval and synthesizing the findings into a comprehensive investigative report.
+This project is a demonstration of an OSINT (Open Source Intelligence) AI Agent. The system is designed to process intelligence queries through an automated, multi-agent pipeline, performing strategic data retrieval and synthesizing the findings into a comprehensive investigative report.
 
 The core of the system is built using **LangGraph** for agent orchestration, a **React** frontend for user interaction, and a specialized multi-LLM architecture to handle distinct tasks within the intelligence workflow. This project prioritizes factual accuracy, robust error handling, and the ability to safely manage ambiguous or conflated data—key requirements for any real-world intelligence tool.
 
