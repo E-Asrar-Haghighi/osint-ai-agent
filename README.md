@@ -112,7 +112,7 @@ Your browser should automatically open to the application, typically at `http://
 The application is designed to fulfill the primary test case of the assignment.
 
 1.  Open your browser to the application's URL.
-2.  In the input field, type the investigation target: **Ali Khaledi Nasab**.
+2.  In the input field, type the investigation target: **The name that you want to investigate**.
 3.  Click the **"Start Investigation"** button.
 4.  Observe the **"Investigation Log"** on the UI. It will update in real-time, showing the internal monologue and actions of each agent in the pipeline.
 5.  Once the investigation is complete, the final, formatted intelligence report will appear. Note that the report may be a "FAILED QUALITY CHECK" message from the Judge agent—this is a successful demonstration of the system's internal quality controls at work.
