@@ -14,15 +14,18 @@ The system implements a two-phase agentic workflow: an **Investigation Loop** fo
 
 The system employs a multi-agent pipeline orchestrated by LangGraph, with each agent using a specialized LLM best suited for its task.
 
-1.  **Orchestration Agent (`Claude 3.5 Sonnet`):** A fast and cost-effective model that parses the initial query and strategically selects the next best tool to use from a diverse toolkit based on the ongoing analysis.
+1.  **Query Analysis Agent (`Claude 3.5 Sonnet`):** This is the first step. It parses the initial user query to identify and extract the primary investigative entities.
 
-2.  **Pivot Agent (`GPT-4o`):** A powerful analytical model that reviews all collected data, synthesizes findings, identifies information gaps, and generates new, intelligent follow-up questions to guide the investigation.
+2.  **Orchestration Agent (`Claude 3.5 Sonnet`):** After the initial analysis, this agent takes over. It strategically selects the next best tool to use from a diverse toolkit based on the ongoing analysis from the Pivot Agent.
 
-3.  **Cleaner Agent (`Gemini 1.5 Pro`):** This agent specializes in **entity resolution**—a critical OSINT task. It analyzes all raw data to detect and separate potentially conflated identities, structuring the verified facts into distinct profiles with confidence scores. This is the primary defense against hallucination.
+3.  **Pivot Agent (`GPT-4o`):** A powerful analytical model that reviews all collected data, synthesizes findings, identifies information gaps, and generates new, intelligent follow-up questions to guide the investigation loop.
 
-4.  **Writer Agent (`Gemini 1.5 Pro`):** Takes the structured, de-conflicted data from the Cleaner and drafts a concise, fact-based intelligence brief. It is instructed to clearly report on any ambiguity or identity conflation found by the Cleaner.
+4.  **Cleaner Agent (`Gemini 1.5 Pro`):** This agent specializes in **entity resolution**—a critical OSINT task. It analyzes all raw data to detect and separate potentially conflated identities, structuring the verified facts into distinct profiles with confidence scores. This is the primary defense against hallucination.
 
-5.  **Judge Agent (`Claude 3 Opus`):** The final, mandatory quality gate. This highly accurate model acts as an adversarial "Red Team," meticulously comparing the drafted report against the source facts. It is given extremely strict instructions to reject any report containing speculation or statements not directly supported by the evidence, ensuring the final output is trustworthy.
+5.  **Writer Agent (`Gemini 1.5 Pro`):** Takes the structured, de-conflicted data from the Cleaner and drafts a concise, fact-based intelligence brief. It is instructed to clearly report on any ambiguity or identity conflation found by the Cleaner.
+
+6.  **Judge Agent (`Claude 3 Opus`):** The final, mandatory quality gate. This highly accurate model acts as an adversarial "Red Team," meticulously comparing the drafted report against the source facts. It is given extremely strict instructions to reject any report containing speculation or statements not directly supported by the evidence, ensuring the final output is trustworthy.
+
 
 ### The "Hybrid Tool" Strategy (Mock vs. Real)
 
