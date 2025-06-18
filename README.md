@@ -31,8 +31,12 @@ The system employs a multi-agent pipeline orchestrated by LangGraph, with each a
 
 Given the 36-hour time constraint, a strategic "Hybrid Tool" approach was implemented to meet all architectural requirements without getting bogged down in multiple, time-consuming API integrations.
 
-*   **Real Tool:** The agent uses one **real, high-quality tool—Tavily for advanced web search**—to provide the factual grounding for its reports. This ensures the final output is based on accurate, real-world data.
-*   **Mock Tools:** To prove the orchestrator's ability to manage a diverse toolkit, several **"safe" mock tools** representing social media, academic, and company database searches were implemented. These mocks print a message to the log to prove they were called, but return no data. This prevents fake data from contaminating the report while still demonstrating a fully functional, multi-source retrieval architecture.
+*   **Real Tool:** The agent uses one **real, high-quality tool—Tavily for advanced web search**—to provide the factual grounding for its reports. This ensures the agent is working with accurate, real-world data.
+
+*   **Mock Tools:** To prove the orchestrator's ability to manage a diverse toolkit, several **mock tools** representing social media, academic, and company database searches were implemented. These mocks are designed to be challenging. They intentionally return **plausible-sounding, generic data** that could be true for many individuals.
+
+This was a conscious design choice to **stress-test the agent's analytical capabilities**. The agent must then use its "Skeptical Cleaner" and entity resolution logic to sift through the mix of real and generic data, identify potential identity conflation, and produce a cautious, fact-based report. This process proves the agent is not just a simple data retriever but a robust intelligence analysis system.
+
 
 ## Core Technologies
 
