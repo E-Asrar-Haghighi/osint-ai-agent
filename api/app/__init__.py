@@ -1,3 +1,0 @@
-"""
-OSINT AI Agent package.
-"""
