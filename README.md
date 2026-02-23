@@ -1,4 +1,7 @@
 # OSINT AI Agent
+<p align="center">
+  <img src="images/Header_pic_001.png" width="400">
+</p
 
 This project is a demonstration of an OSINT (Open Source Intelligence) AI Agent. The system is designed to process intelligence queries through an automated, multi-agent pipeline, performing strategic data retrieval and synthesizing the findings into a comprehensive investigative report.
 
